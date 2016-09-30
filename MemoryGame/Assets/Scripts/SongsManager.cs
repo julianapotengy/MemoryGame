@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SongsManager : MonoBehaviour
 {
 	public AudioClip[] randomSongs = new AudioClip[10];
 	private AudioSource audio;
 	private static SongsManager instance = null;
+
 	public static SongsManager Instance
 	{
 		get { return instance; }
 	}
-	
-	void Awake()
+
+	void Awake ()
 	{
 		if (instance != null && instance != this)
 		{

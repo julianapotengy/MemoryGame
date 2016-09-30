@@ -5,24 +5,31 @@ using UnityEngine.UI;
 
 public class AboutIt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+	public GameObject[] showSinopse;
+
 	void Start ()
 	{
-	
-	}
-
-	void Update ()
-	{
-	
+		showSinopse = GameObject.FindGameObjectsWithTag (gameObject.name + "Panel");
+		foreach(GameObject g in showSinopse)
+		{
+			g.SetActive(false);
+		}
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-
+		foreach(GameObject g in showSinopse)
+		{
+			g.SetActive(true);
+		}
 	}
 	
 	public void OnPointerExit (PointerEventData eventData) 
 	{
-
+		foreach(GameObject g in showSinopse)
+		{
+			g.SetActive(false);
+		}
 	}
 
 	public void ChangeScene(int i)
