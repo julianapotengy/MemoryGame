@@ -95,16 +95,11 @@ public class CardsManager : MonoBehaviour
 		{
 			if (img.sprite.name == img1.sprite.name)
 			{
-				Debug.Log("iguais");
 				selectedCards.Clear();
 				canShow = true;
 				rightCards += 1;
 			}
-			else
-			{
-				Debug.Log("diferentes");
-				canCount = true;
-			}
+			else canCount = true;
 		}
 	}
 	

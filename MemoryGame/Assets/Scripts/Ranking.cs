@@ -12,10 +12,6 @@ public class Ranking : MonoBehaviour
 	public Text highScoreText3;
 	public Text highScoreText4;
 	public Text highScoreText5;
-	private AudioSource audio;
-	public Button musicManager;
-	public Sprite withSound, withoutSound;
-	private bool soundPaused;
 
 	void Start () 
 	{
@@ -35,7 +31,6 @@ public class Ranking : MonoBehaviour
 			highscores.Reverse();
 		}
 		SetHighScore();
-		audio = Object.FindObjectOfType <AudioSource>() as AudioSource;
 	}
 
 	void Update () 
@@ -50,17 +45,6 @@ public class Ranking : MonoBehaviour
 		highScoreText3.text = "3o: " + PlayerPrefs.GetInt("SCOREPOSITION 2");
 		highScoreText4.text = "4o: " + PlayerPrefs.GetInt("SCOREPOSITION 3");
 		highScoreText5.text = "5o: " + PlayerPrefs.GetInt("SCOREPOSITION 4");
-
-		if (soundPaused)
-		{
-			audio.mute = true;
-			musicManager.GetComponent<Image> ().sprite = withoutSound;
-		}
-		else if (!soundPaused)
-		{
-			audio.mute = false;
-			musicManager.GetComponent<Image> ().sprite = withSound;
-		}
 	}
 
 	protected virtual void SetHighScore()
@@ -72,10 +56,5 @@ public class Ranking : MonoBehaviour
 	public void ChangeScene(int i)
 	{
 		Application.LoadLevel (0);
-	}
-
-	public void Sound()
-	{
-		soundPaused = !soundPaused;
 	}
 }
